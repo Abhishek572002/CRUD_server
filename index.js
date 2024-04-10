@@ -11,6 +11,24 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 dotenv.config();
+app.use(
+  cors({
+    origin: "https://applecrud.netlify.app",
+    credentials: true,
+  })
+);
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://applecrud.netlify.app"
+  );
+  res.header(
+    "Access-Control-Allow-Origin",
+    "Origin,X-Requested-With,Content-Type,Accept",
+    "Access-Control-Allow-Methods: GET, DELETE, PUT, PATCH, HEAD, OPTIONS, POST"
+  );
+  next();
+});
 
 const PORT = process.env.PORT || 7000;
 const URL = process.env.MONGOURL;
