@@ -13,14 +13,14 @@ app.use(cors());
 dotenv.config();
 app.use(
   cors({
-    origin: "https://applecrud.netlify.app",
+    origin: "https://showcrud.netlify.app",
     credentials: true,
   })
 );
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://applecrud.netlify.app"
+    "https://showcrud.netlify.app"
   );
   res.header(
     "Access-Control-Allow-Origin",
